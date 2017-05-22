@@ -22,10 +22,11 @@ namespace Bank
         static void GenerateRunnables()
         {
             BankServers.Add(new BankServer());
-            BankAgents.Add(new PlusConstantAgent());
-            BankAgents.Add(new MinusConsantAgent());
-            BankAgents.Add(new MinusProcentAgent());
-            BankAgents.Add(new PlusProcentAgent());
+            for(int i = 0; i < 10; i++) { BankAgents.Add(new PlusConstantAgent()); }
+            for(int i = 0; i < 10; i++) { BankAgents.Add(new MinusConsantAgent()); }
+            
+            //BankAgents.Add(new MinusProcentAgent());
+            //BankAgents.Add(new PlusProcentAgent());
         }
 
         static void RunThreads()
@@ -51,7 +52,11 @@ namespace Bank
         static void Main(string[] args)
         {
             GenerateRunnables();
-            RunThreads();   
+            RunThreads();
+            
+           
+            
+            Console.ReadKey();
         }
     }
 }
