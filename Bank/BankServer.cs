@@ -15,6 +15,7 @@ namespace Bank
         public float AccountStatus { get; set; }
         private int ID;
         int i=0;
+        //public bool lockToken;
         public BankServer()
         {
             ID = ++id;
@@ -24,7 +25,7 @@ namespace Bank
         public override void Update()
         {
             i++;
-            Console.WriteLine("Bank Account Status=" + AccountStatus);
+            //Console.WriteLine("Bank Account Status=" + AccountStatus);
             
             if (Program._BankAgents.All(e => e.HasFinished))
             {
