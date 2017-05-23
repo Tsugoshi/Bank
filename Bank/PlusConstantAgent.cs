@@ -15,19 +15,22 @@ namespace Bank
         public override void Update()
         {
             lockToken = false;
-            Program._BankServers[0].mutex.WaitOne();
+            //Program._BankServers[0].mutex.WaitOne();
 
             //lock(Program._BankServers[0])
-
+            try
             {
+
+                Program._BankServers[0].spinLock.Enter(ref lockToken);
                 i++;
                 AccountStatus = Program._BankServers[0].AccountStatus;
                 AccountStatus += 50;
                 Program._BankServers[0].AccountStatus = AccountStatus;
                 Console.WriteLine("Plus Constant Agent Account Status=" + AccountStatus);
-                if (i == 9999) { HasFinished = true; }
+                if (i == 99) { HasFinished = true; }
             }
-            Program._BankServers[0].mutex.ReleaseMutex();
+            finally { if (lockToken) { Program._BankServers[0].spinLock.Exit(); } }
+            //Program._BankServers[0].mutex.ReleaseMutex();
         }
 
     }

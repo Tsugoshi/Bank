@@ -22,8 +22,8 @@ namespace Bank
         static void GenerateRunnables()
         {
             BankServers.Add(new BankServer());
-            for(int i = 0; i < 10; i++) { BankAgents.Add(new PlusConstantAgent()); }
-            for(int i = 0; i < 10; i++) { BankAgents.Add(new MinusConsantAgent()); }
+            for(int i = 0; i < 100; i++) { BankAgents.Add(new PlusConstantAgent()); }
+            for(int i = 0; i < 100; i++) { BankAgents.Add(new MinusConsantAgent()); }
             
             //BankAgents.Add(new MinusProcentAgent());
             //BankAgents.Add(new PlusProcentAgent());

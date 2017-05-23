@@ -31,7 +31,7 @@ namespace Bank
                 AccountStatus -= 50;
                 Program._BankServers[0].AccountStatus = AccountStatus;
                 Console.WriteLine("Minus Constant Agent Account Status=" + AccountStatus);
-                if (i == 9999) { HasFinished = true; }
+                if (i == 99) { HasFinished = true; }
             }
             finally { if(lockToken) { Program._BankServers[0].spinLock.Exit(); } }
             //Mutex

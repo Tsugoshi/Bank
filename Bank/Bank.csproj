@@ -47,9 +47,7 @@
     <Compile Include="BankServer.cs" />
     <Compile Include="IRunnable.cs" />
     <Compile Include="MinusConsantAgent.cs" />
-    <Compile Include="MinusProcentAgent.cs" />
     <Compile Include="PlusConstantAgent.cs" />
-    <Compile Include="PlusProcentAgent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
