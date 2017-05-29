@@ -16,20 +16,22 @@ namespace Bank
         public MinusConsantAgent()
         {
             ID = ++id;
+            ID -= 1;
         }
         public override void Update()
         {
-            lockToken = false;
+            // lockToken = false;
             ///mutex
             ///Program._BankServers[0].mutex.WaitOne();
 
             //lock(Program._BankServers[0])
             //spinlock
-            Console.WriteLine("Try " + ID);
-            try
+            //Console.WriteLine("Try " + ID);
+            //try
+            Lock(ID);
             {
                 ///SpinLock
-                Program._BankServers[0].spinLock.TryEnter(0, ref lockToken);
+                //Program._BankServers[0].spinLock.Enter( ref lockToken);
 
 
                 i++;
@@ -39,7 +41,8 @@ namespace Bank
                 Console.WriteLine("Minus Constant Agent Account Status=" + AccountStatus+' '+ID);
                 if (i == 10) { HasFinished = true; }
             }
-            finally { if(lockToken) { Program._BankServers[0].spinLock.Exit(); } }
+            Unlock(ID);
+            //finally { if(lockToken) { Program._BankServers[0].spinLock.Exit(); } }
             //Mutex
             //Program._BankServers[0].mutex.ReleaseMutex();
 

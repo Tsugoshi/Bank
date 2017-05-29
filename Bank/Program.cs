@@ -18,12 +18,15 @@ namespace Bank
         public static List<IRunnable> _BankAgents { get { return BankAgents; } }
 
         private readonly static List<Thread> ThreadList = new List<Thread>();
+        public static List<Thread> _ThreadList { get { return ThreadList; } }
+
+        public static int ilosc=2;
 
         static void GenerateRunnables()
         {
             BankServers.Add(new BankServer());
-            for(int i = 0; i < 10; i++) { BankAgents.Add(new PlusConstantAgent()); }
-            for(int i = 0; i < 10; i++) { BankAgents.Add(new MinusConsantAgent()); }
+            for(int i = 0; i < ilosc; i++) { BankAgents.Add(new PlusConstantAgent()); }
+            for(int i = 0; i < ilosc; i++) { BankAgents.Add(new MinusConsantAgent()); }
             
             //BankAgents.Add(new MinusProcentAgent());
             //BankAgents.Add(new PlusProcentAgent());

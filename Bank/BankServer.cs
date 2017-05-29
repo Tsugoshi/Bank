@@ -13,18 +13,18 @@ namespace Bank
         public Mutex mutex;
         public SpinLock spinLock;
         public float AccountStatus { get; set; }
-        private int ID;
-        int i=0;
+       
+        
         //public bool lockToken;
         public BankServer()
         {
-            ID = ++id;
+            
             mutex = new Mutex();
             spinLock = new SpinLock();
         }
         public override void Update()
         {
-            i++;
+            
             //Console.WriteLine("Bank Account Status=" + AccountStatus);
             
             if (Program._BankAgents.All(e => e.HasFinished))
